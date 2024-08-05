@@ -1,0 +1,16 @@
+﻿@model AccountSystem.Models.InvoiceDetail
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1 class="text-center text-success m-4">Details</h1>
+    <div class="card text-bg-danger mb-3" style="max-width: 28rem;min-height:15rem;margin:auto">
+        <div class="card-header">@Model.ItemName</div>
+        <div class="card-body">
+            <h5 class="card-title">@Model.ItemPrice EGP.</h5>
+            <p class="card-text">There are<span class="text-success fw-bold"> @Model.ItemCount</span> Items of that Product Ordered by<span class="text-success fw-bold">"@Model.InvoiceHeader.CustomerName"</span> </p>
+           <a href="/Invoice/Index" class="btn btn-outline-danger">Back To Invoices</a> 
+        </div>
+    </div>
+
+

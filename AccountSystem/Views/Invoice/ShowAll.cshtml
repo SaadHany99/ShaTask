@@ -1,0 +1,38 @@
+﻿@model List<InvoiceDetail>
+@{
+    ViewData["Title"] = "ShowAll";
+}
+
+<h1 class="text-center text-success m-3">
+    All Invoices
+</h1>
+<h6 class="text-center text-secondary">
+    <sup class="text-danger fw-bolder">*</sup><b>Hint:</b> You can see more Details by clicking on the <span class="text-info fw-bold">Item Name</span>
+</h6>
+<a class="btn btn-outline-success mb-2" asp-action="New">Add Invoice</a>
+<table class="table table-striped table-dark table-hover">
+    <thead>
+        <th class="text-danger fw-bold">Id</th>
+        <th class="text-center text-info fw-bold">Item Name</th>
+        <th class="text-center text-warning fw-bold">Item Count</th>
+        <th class="text-center text-info fw-bold">Item Price</th>
+        <th class="text-center text-warning fw-bold">Customer Name</th>
+        <th class="text-center text-danger fw-bold">Actions</th>
+    </thead>
+    @foreach(var item in Model)
+    {
+        <tr>
+            <td class="text-danger fw-bold">@item.ID</td>
+            <td class="text-center text-info fw-bold">
+                <a asp-action="Details" asp-route-id="@item.ID" class="text-decoration-none text-info">@item.ItemName</a>
+            </td>
+            <td class="text-center text-warning">@item.ItemCount</td>
+            <td class="text-center text-info">@item.ItemPrice EGP.</td>
+            <td class="text-center text-warning">@item.InvoiceHeader.CustomerName</td>
+            <td class="text-center">
+                <a asp-action="Edit" asp-route-id="@item.ID">Edit</a> |
+                <a asp-action="DeleteInvoice" asp-route-id="@item.ID">Delete</a>
+            </td>
+        </tr>
+    }
+</table>

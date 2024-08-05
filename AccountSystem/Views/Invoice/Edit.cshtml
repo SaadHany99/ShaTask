@@ -1,0 +1,23 @@
+﻿@model AccountSystem.Models.InvoiceDetail
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<a href="/Invoice/Index" class="btn btn-outline-danger">Back To Invoices</a>
+<h1 class="text-center text-success mb-4">Edit Invoice <sup class="text-danger fw-bold">"@Model.ID"</sup></h1>
+<form action="/Invoice/SaveEdit/@Model.ID" method="post">
+
+    <lable>Item Name</lable>
+    <input name="ItemName" id="ItemName" value="@Model.ItemName" class="form form-control" />
+
+    <lable>Item Price</lable>
+    <input name="ItemPrice" id="ItemPrice" value="@Model.ItemPrice" class="form form-control" />
+
+    <lable>Item Quantity</lable>
+    <input name="ItemCount" id="ItemCount" value="@Model.ItemCount" class="form form-control" />
+
+    <lable>Invoice Header</lable>
+    <input name="InvoiceHeaderID" id="InvoiceHeaderID" value="@Model.InvoiceHeaderID" class="form form-control" />
+
+    <input type="submit" value="Save" class="btn btn-success my-2" />
+</form>
